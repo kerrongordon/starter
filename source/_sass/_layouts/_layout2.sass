@@ -1,0 +1,49 @@
+.#{$layout2}
+  padding: $pad * 2
+
+  +e('article')
+    padding-bottom: $pad
+    position: relative
+
+  +e('title')
+    transform: translate(0, -30px)
+    margin-top: -74px
+    margin-bottom: -8px
+    background: $background-color
+    z-index: 5
+    position: relative
+    width: 75%
+    font-size: 1.5rem
+    padding: $pad / 2
+    box-shadow: -4px 4px $primary-color, 4px -4px $accent-color
+
+  +e('img')
+    margin: $margin
+
+  +e('content')
+    margin: $margin
+    font-size: 1rem
+
+  .btn
+    display: block
+    margin-top: $margin
+
+.#{$layout2}
+  @media screen and (min-width: $tablet)
+
+    .flex
+      display: flex
+      flex-direction: row-reverse
+
+    .btn
+      display: inline-block
+      position: relative
+      left: 50%
+      right: 50%
+      transform: translate(-50%, 0)
+
+
+.#{$layout2}
+  @media screen and (min-width: $desktop)
+    padding-top: $pad * 6
+    padding-bottom: $pad * 6

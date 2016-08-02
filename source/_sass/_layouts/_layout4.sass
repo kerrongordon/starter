@@ -1,0 +1,30 @@
+.#{$layout4}
+  background-color: $primary-color
+  background: linear-gradient(145deg, $primary-color, $accent-color)
+  padding-top: $pad * 2
+  padding-bottom: $pad * 2
+
+  +e('article')
+    margin: $margin auto
+    color: $light
+    text-align: center
+
+  +e('title')
+    font-size: 1.2rem
+
+  +e('content')
+    font-size: 0.9rem
+    line-height: 1.7
+
+.#{$layout4}
+  @media screen and (min-width: $tablet)
+
+    .flex
+      display: flex
+
+    +e('article')
+      width: 60%
+
+.#{$layout4}
+  @media screen and (min-width: $desktop)
+    padding: $pad * 3

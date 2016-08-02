@@ -1,0 +1,69 @@
+.#{$layout1}
+  padding-top: $pad * 2
+  padding-bottom: $pad * 2
+
+  +e('article')
+    margin: $margin
+
+  +e('aside')
+    margin: $margin
+    margin-top: $margin * 2
+
+    +e('item')
+      clear: both
+
+    +e('img')
+      float: $fl
+      width: 100px
+      border: solid 1px
+      margin: 0 $margin $margin 0
+
+    .title
+      padding: 0
+
+    .content
+      font-size: $font-size / 1
+      line-height: $line-height / 1.5
+      padding: $pad / 10
+
+.#{$layout1}
+  @media screen and (min-width: $tablet) and (max-width: $desktop)
+
+    +e('aside:before')
+      content: ''
+      display: block
+      height: 1px
+      width: 95.7%
+      position: absolute
+      margin: -$margin - 35 auto
+      background: rgba($dark-color, 0.3)
+
+    +e('aside')
+      display: flex
+      padding-top: $pad * 3
+
+.#{$layout1}
+  @media screen and (min-width: $desktop)
+    padding-top: $pad * 6
+    padding-bottom: $pad * 6
+
+    .flex
+      display: flex
+
+    +e('article')
+      width: 80%
+
+    +e('aside:before')
+      content: ''
+      display: block
+      width: 1px
+      height: 100%
+      margin-left: -$margin - 5
+      position: absolute
+      background: rgba($dark-color, 0.3)
+
+    +e('aside')
+      position: relative
+
+      +e('item')
+        margin-top: $margin
