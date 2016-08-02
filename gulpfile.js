@@ -15,6 +15,8 @@ const notify = require("gulp-notify");
 const htmlminify = require("gulp-html-minify");
 const autoprefixer = require('gulp-autoprefixer');
 const minifyCSS = require('gulp-minify-css');
+const ghPages = require('gulp-gh-pages');
+const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 
 
@@ -22,6 +24,7 @@ let source = {
 	js: 'source/_js/**/*.js',
 	sass: 'source/_sass/**/*.sass',
 	html: 'source/**/*.html',
+	img: 'source/assets/img/',
 	output: {
 		js: 'source/assets/js/',
 		css: 'source/assets/css/'
@@ -31,6 +34,7 @@ let source = {
 let live = {
 	css: '_live/assets/css/',
 	js: '_live/assets/js/',
+	img: '_live/assets/img/',
 	html: '_live/**/*.html',
 	all: '_live/*'
 }
@@ -38,7 +42,8 @@ let live = {
 let build = {
 	dest: 'build/',
 	js: 'build/assets/js/',
-	css: 'build/assets/css/'
+	css: 'build/assets/css/',
+	img: 'build/assets/img/'
 }
 
 //==========================================================//
@@ -124,10 +129,27 @@ gulp.task('css:build', ['js:build'], () => {
 });
 
 //==========================================================//
+//========================Img Build=========================//
+//==========================================================//
+
+gulp.task('img:build', ['css:build'], () => {
+    return gulp.src(source.img + '**/*')
+        .pipe(imagemin({
+            optimizationLevel: 3,
+            progressive: true,
+            interlaced: false,
+            svgoPlugins: [{
+                removeViewBox: false
+            }]
+        }))
+        .pipe(gulp.dest(build.img));
+});
+
+//==========================================================//
 //=========================Build============================//
 //==========================================================//
 
-gulp.task('build', ['css:build'], () => {
+gulp.task('build', ['img:build'], () => {
 	return gulp.src(live.all + '.{txt,xml,ico,png}')
 		.pipe(gulp.dest(build.dest));
 });
@@ -146,4 +168,13 @@ gulp.task('serve', ['jekyll', 'sass', 'concat'], () => {
     gulp.watch(source.html, ['jekyll']);
     gulp.watch(source.js, ['concat', 'jekyll']);
     gulp.watch(live.html).on('change', browserSync.reload);
+});
+
+//==========================================================//
+//=====================Gulp deploy===========================//
+//==========================================================//
+
+gulp.task('deploy', ['build'], () => {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
 });

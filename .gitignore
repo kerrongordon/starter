@@ -70,3 +70,4 @@ jspm_packages
 _live/
 build/
 source/_components
+.publish/
