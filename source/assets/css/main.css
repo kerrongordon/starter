@@ -152,7 +152,20 @@ img {
 
 .layout1 {
   padding-top: 40px;
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  position: relative;
+  overflow: hidden; }
+  .layout1:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: -19px;
+    bottom: -116px;
+    z-index: 1;
+    position: absolute;
+    background: url(../img/triangle.svg) no-repeat; }
+  .layout1 .flex {
+    z-index: 2; }
   .layout1__article {
     margin: 20px; }
   .layout1__aside {
@@ -209,7 +222,21 @@ img {
         margin-top: 20px; } }
 
 .layout2 {
-  padding: 40px; }
+  padding: 40px;
+  position: relative;
+  overflow: hidden; }
+  .layout2:after {
+    content: '';
+    width: 25%;
+    height: 100%;
+    right: 0;
+    bottom: -379px;
+    z-index: 1;
+    position: absolute;
+    background: url(../img/box.svg) no-repeat;
+    transform: scale(1.5); }
+  .layout2 .flex {
+    z-index: 2; }
   .layout2__article {
     padding-bottom: 20px;
     position: relative; }

@@ -1,5 +1,21 @@
 .#{$layout2}
   padding: $pad * 2
+  position: relative
+  overflow: hidden
+
+  &:after
+    content: ''
+    width: 25%
+    height: 100%
+    right: 0
+    bottom: -379px
+    z-index: 1
+    position: absolute
+    background: url(../img/box.svg) no-repeat
+    transform: scale(1.5)
+
+  .flex
+    z-index: 2
 
   +e('article')
     padding-bottom: $pad
