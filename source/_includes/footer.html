@@ -7,5 +7,12 @@
     <a href="#" class="footer__menu">Privacy</a>
     <a href="#" class="footer__menu">Site Map</a>
   </div>
-  <script src="{{ "assets/js/main.js" | prepend: site.baseurl }}"></script>
 </footer>
+
+
+{% include
+  meta/notification.html
+  name="test"
+  icon="fa-bell"
+  title="Although they're optional"
+  content="you should add at least one action to your notification. An action allows users" %}
