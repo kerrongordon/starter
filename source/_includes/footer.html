@@ -10,9 +10,23 @@
 </footer>
 
 
-{% include
-  meta/notification.html
-  name="test"
-  icon="fa-bell"
-  title="Although they're optional"
-  content="you should add at least one action to your notification. An action allows users" %}
+<div class="notify">
+
+  {% include
+    meta/notification.html
+    name="test"
+    icon="fa-bell"
+    title="Although they're optional"
+    content="you should add at least one action to your notification. An action allows users" %}
+
+  {% include
+    meta/notification.html
+    name="test2"
+    icon="fa-bell"
+    title="Although they're optional"
+    content="you should add at least one action to your notification. An action allows users" %}
+
+</div>
+
+
+{% include meta/scripts.html bottom="true" %}

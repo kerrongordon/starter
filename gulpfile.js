@@ -17,6 +17,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const minifyCSS = require('gulp-minify-css');
 const ghPages = require('gulp-gh-pages');
 const imagemin = require('gulp-imagemin');
+const gulpWebpack = require('gulp-webpack');
+const webpack = require('webpack');
 const browserSync = require('browser-sync').create();
 
 
@@ -56,15 +58,22 @@ gulp.task('clean:build', () => {
 
 
 //==========================================================//
-//========================CONCAT============================//
+//========================gulpWebpack============================//
 //==========================================================//
 
-gulp.task('concat', ['clean:build'], () => {
-  return gulp.src(source.js)
+// gulp.task('concat', ['clean:build'], () => {
+//   return gulp.src(source.js)
+//   	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+//     .pipe(sourcemaps.init())
+//     .pipe(concat('main.js'))
+//     .pipe(sourcemaps.write())
+//     .pipe(gulp.dest(source.output.js));
+// });
+gulp.task('gulpWebpack', ['clean:build'], () => {
+  return gulp.src('source/_js/main.js')
   	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-    .pipe(sourcemaps.init())
-    .pipe(concat('main.js'))
-    .pipe(sourcemaps.write())
+    .pipe(gulpWebpack({ output: { filename: 'main.js', }, }))
+		.pipe(concat('main.js'))
     .pipe(gulp.dest(source.output.js));
 });
 
@@ -72,15 +81,13 @@ gulp.task('concat', ['clean:build'], () => {
 //=========================SASS=============================//
 //==========================================================//
 
-gulp.task('sass', ['concat'], () => {
+gulp.task('sass', ['gulpWebpack'], () => {
 	return gulp.src(source.sass)
 		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-		// .pipe(sourcemaps.init())
 		.pipe(sass({ indentedSyntax: true }))
-		// .pipe(sourcemaps.write())
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
-    	.pipe(gulp.dest(source.output.css))
-    	.pipe(browserSync.stream());
+    .pipe(gulp.dest(source.output.css))
+    .pipe(browserSync.stream());
 });
 
 //==========================================================//
@@ -114,8 +121,19 @@ gulp.task('html:build', ['jekyll'], () => {
 //=======================Js Build===========================//
 //==========================================================//
 
-gulp.task('js:build', ['html:build'], (cb) => {
-  pump([gulp.src('_live/assets/js/main.js'), uglify(), gulp.dest(build.js)], cb);
+// gulp.task('js:build', ['html:build'], (cb) => {
+//   pump([gulp.src('_live/assets/js/main.js'), uglify(), gulp.dest(build.js)], cb);
+// });
+
+gulp.task('js:build', ['html:build'], () => {
+	gulp.src(live.js + 'main.js')
+    .pipe(gulpWebpack({
+      output: {
+        filename: 'main.js',
+      },
+      plugins: [new webpack.optimize.UglifyJsPlugin()],
+    }, webpack))
+    .pipe(gulp.dest(build.js));
 });
 
 //==========================================================//
@@ -158,7 +176,7 @@ gulp.task('build', ['img:build'], () => {
 //=====================Gulp Serve===========================//
 //==========================================================//
 
-gulp.task('serve', ['jekyll', 'sass', 'concat'], () => {
+gulp.task('serve', ['jekyll', 'sass', 'gulpWebpack'], () => {
 
     browserSync.init({
         server: "./_live"
@@ -166,7 +184,7 @@ gulp.task('serve', ['jekyll', 'sass', 'concat'], () => {
 
     gulp.watch(source.sass, ['sass', 'jekyll']);
     gulp.watch(source.html, ['jekyll']);
-    gulp.watch(source.js, ['concat', 'jekyll']);
+    gulp.watch(source.js, ['gulpWebpack', 'jekyll']);
     gulp.watch(live.html).on('change', browserSync.reload);
 });
 

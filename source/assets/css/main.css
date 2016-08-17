@@ -44,7 +44,8 @@ body {
   font-size: 0.9rem;
   position: relative;
   color: #656565;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: none; }
 
 h1 {
   font-size: 3.15rem;
@@ -116,9 +117,7 @@ img {
   .hero__img {
     width: 100%;
     height: 100%;
-    background: url(../img/hero.jpg) 50% 50%/cover;
-    perspective-origin: top;
-    animation: heroImg 2s ease-in-out; }
+    perspective-origin: top; }
 
 @keyframes heroImg {
   0% {
@@ -150,10 +149,21 @@ img {
   padding: 10px;
   margin: 10px; }
 
+.notify {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: green;
+  z-index: 99;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
 .notification {
   width: 100%;
   color: #656565;
-  position: fixed;
+  position: relative;
   background: #ffffff;
   z-index: 99;
   bottom: -50%;
@@ -183,18 +193,6 @@ img {
     position: absolute;
     top: 0;
     right: 0; }
-
-@media screen and (min-width: 860px) {
-  .notification {
-    width: 50%;
-    bottom: -50%;
-    right: 20px; }
-    .notification__open {
-      bottom: 20px; } }
-
-@media screen and (min-width: 1000px) {
-  .notification {
-    width: 35%; } }
 
 .layout1 {
   padding-top: 40px;

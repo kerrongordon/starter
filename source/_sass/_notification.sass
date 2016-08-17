@@ -1,7 +1,17 @@
+.notify
+  position: fixed
+  bottom: 0
+  right: 0
+  background: green
+  z-index: 99
+  display: flex
+  flex-direction: column
+
+
 .notification
   width: 100%
   color: $font-color
-  position: fixed
+  position: relative
   background: $background-color
   z-index: 99
   bottom: -50%
@@ -35,15 +45,15 @@
     top: 0
     right: 0
 
-.notification
-  @media screen and (min-width: $tablet)
-    width: 50%
-    bottom: -50%
-    right: $pad
-
-    +e('open')
-      bottom: $pad
-
-.notification
-  @media screen and (min-width: $desktop)
-    width: 35%
+// .notification
+//   @media screen and (min-width: $tablet)
+//     width: 50%
+//     bottom: -50%
+//     right: $pad
+//
+//     +e('open')
+//       bottom: $pad
+//
+// .notification
+//   @media screen and (min-width: $desktop)
+//     width: 35%

@@ -1,3 +1,11 @@
-<script src="https://use.fontawesome.com/c4f6a97eb0.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="{{ "assets/js/main.js" | prepend: site.baseurl }}"></script>
+{% if include.top %}
+
+  <script src="https://use.fontawesome.com/c4f6a97eb0.js"></script>
+
+{% endif %}
+
+{% if include.bottom %}
+
+  <script src="{{ "assets/js/main.js" | prepend: site.baseurl }}"></script>
+
+{% endif %}
