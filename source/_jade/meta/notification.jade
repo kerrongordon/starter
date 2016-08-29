@@ -1,0 +1,16 @@
+.notification | {{ include.name }}
+  | {% if include.icon %}
+  .notification__icon
+    i(class="fa {{ include.icon }} fa-5x" aria-hidden="true")
+  | {% endif %}
+
+  | {% if include.title %}
+  h3.notification__title | {{ include.title }}
+  | {% endif %}
+
+  | {% if include.content %}
+  p.notification__content | {{ include.content }}
+  | {% endif %}
+
+  span.notification__close 
+    i(aria-hidden="true").fa.fa-times-circle.fa-2x
