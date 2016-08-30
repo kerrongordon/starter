@@ -1,0 +1,26 @@
+.#{$layout5}
+    position: relative
+    background: $dark-color
+    overflow: hidden
+
+    +e('item')
+        position: relative
+        margin-bottom: -11px
+
+    +e('title')
+        position: absolute
+        z-index: 15
+        top: 50%
+        left: 40%
+        transform: translate(-30%, -50%)
+        color: $light
+        font-size: 1.6rem
+        margin: 0
+        padding: 0
+
+
+.#{$layout5}
+  @media screen and (min-width: $tablet)
+    .flex 
+        display: flex
+        justify-content: center

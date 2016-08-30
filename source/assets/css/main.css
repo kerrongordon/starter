@@ -80,6 +80,15 @@ img {
   margin: 0 auto;
   position: relative; }
 
+.overflow {
+  background: rgba(52, 73, 94, 0.8);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
 .title {
   padding: 20px 20px 20px 0; }
 
@@ -372,3 +381,28 @@ img {
 @media screen and (min-width: 1000px) {
   .layout4 {
     padding: 60px; } }
+
+.layout5 {
+  position: relative;
+  background: #34495e;
+  overflow: hidden; }
+  .layout5__item {
+    position: relative;
+    margin-bottom: -11px; }
+  .layout5__title {
+    position: absolute;
+    z-index: 15;
+    top: 50%;
+    left: 40%;
+    transform: translate(-30%, -50%);
+    color: #fff;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0; }
+
+@media screen and (min-width: 860px) {
+  .layout5 .flex {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center; } }
