@@ -3,6 +3,13 @@
     background: $dark-color
     overflow: hidden
 
+    .flex 
+        display: flex
+        flex-wrap: wrap
+
+        .#{$layout5}__item
+            width: 50%
+
     +e('item')
         position: relative
         margin-bottom: -11px
@@ -24,3 +31,7 @@
     .flex 
         display: flex
         justify-content: center
+        flex-wrap: nowrap
+
+        .#{$layout5}__item
+            width: 100%

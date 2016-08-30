@@ -4,16 +4,6 @@
   padding-top: $pad * 2
   position: relative
 
-  &::after
-    background: url('../img/triangle.svg') no-repeat
-    bottom: -116px
-    content: ''
-    height: 100%
-    left: -19px
-    position: absolute
-    width: 100%
-    z-index: 1
-
   .flex
     z-index: 2
 
@@ -61,6 +51,16 @@
   @media screen and (min-width: $desktop)
     padding-top: $pad * 6
     padding-bottom: $pad * 6
+
+    &::after
+      background: url('../img/triangle.svg') no-repeat
+      bottom: -116px
+      content: ''
+      height: 100%
+      left: -19px
+      position: absolute
+      width: 100%
+      z-index: 1
 
     .flex
       display: flex
