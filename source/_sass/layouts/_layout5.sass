@@ -1,37 +1,76 @@
 .#{$layout5}
+  position: relative
+  background: $dark-color
+  overflow: hidden
+
+  .flex
+    display: flex
+    flex-wrap: wrap
+
+    .#{$layout5}__item
+      width: 50%
+
+  +e('item')
     position: relative
-    background: $dark-color
     overflow: hidden
 
-    .flex 
-        display: flex
-        flex-wrap: wrap
+    &:hover
+      img
+        filter: blur(15px)
 
-        .#{$layout5}__item
-            width: 50%
+      .#{$layout5}__title
+        top: 40%
 
-    +e('item')
-        position: relative
-        margin-bottom: -11px
+      .#{$layout5}__btn
+        top: 60%
+        opacity: 1
 
-    +e('title')
-        position: absolute
-        z-index: 15
-        top: 50%
-        left: 40%
-        transform: translate(-30%, -50%)
-        color: $light
-        font-size: 1.6rem
-        margin: 0
-        padding: 0
+
+  +m('img')
+    transition: $transition
+    margin-bottom: -11px
+
+  +e('btn')
+    position: absolute
+    z-index: 10
+    opacity: 0
+    top: 80%
+    left: 50%
+    transform: translate(-50%, -50%)
+    transition: $transition
+    padding: 5px 10px
+    background: transparent
+    border: solid 1px
+
+    &:hover
+      background: transparent
+
+  +e('title')
+    position: absolute
+    z-index: 15
+    top: 50%
+    left: 44%
+    transform: translate(-30%, -50%)
+    color: $light
+    font-size: 0.8rem
+    margin: 0
+    padding: 0
+    transition: $transition
 
 
 .#{$layout5}
   @media screen and (min-width: $tablet)
-    .flex 
-        display: flex
-        justify-content: center
-        flex-wrap: nowrap
+    .flex
+      display: flex
+      justify-content: center
+      flex-wrap: nowrap
 
-        .#{$layout5}__item
-            width: 100%
+      .#{$layout5}__item
+        width: 100%
+
+
+.#{$layout5}
+  @media screen and (min-width: $desktop + 300)
+    +e('title')
+      font-size: 1.4rem
+      left: 40%
