@@ -13,7 +13,7 @@ const concat = require('gulp-concat')
 const plumber = require('gulp-plumber')
 const sourcemaps = require('gulp-sourcemaps')
 const notify = require('gulp-notify')
-const htmlminify = require('gulp-html-minify')
+const htmlminify = require('gulp-html-minifier')
 const autoprefixer = require('gulp-autoprefixer')
 const minifyCSS = require('gulp-minify-css')
 const ghPages = require('gulp-gh-pages')
@@ -106,7 +106,7 @@ gulp.task('jekyll:build', () => {
 //========== Html Build =========//
 gulp.task('html:build', () => {
   return gulp.src(live.html)
-    .pipe(htmlminify())
+    .pipe(htmlminify({ collapseWhitespace: true }))
     .pipe(gulp.dest(build.dest))
 })
 
