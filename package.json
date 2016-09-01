@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp build",
+    "deploy": "gulp deploy",
+    "start": "gulp serve"
   },
   "author": "kerron gordon",
   "license": "ISC",
   "dependencies": {
     "fontawesome": "^4.5.0",
     "gulp": "^3.9.1",
-    "modernizr": "^3.3.1"
+    "modernizr": "^3.3.1",
+    "npm-run-script": "0.0.4"
   },
   "devDependencies": {
     "babel": "^6.5.2",
