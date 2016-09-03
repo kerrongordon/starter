@@ -1,0 +1,29 @@
+- var lay6 = "layout6"
+
+section(class="#{lay6}")
+  div(class="#{lay6}__contain")
+    h3(class="title #{lay6}__title") Get In Touch
+    p(class="content #{lay6}__content") Vestibulum aliquid eu harum dictum inventore, placeat aperiam, mi hendrerit 
+    
+  .contact
+    .contain
+      form(id="contact__form" class="contact__form" action="//formspree.io/" method="POST")
+        .contact__form__name.contact__form__tyinput
+          label(for="name") 
+          input(type="text" id="name" name="name" class="contact__form__input" required="" placeholder="Your Name" onfocus="this.placeholder = 'Enter Your Name Here'" onblur="this.placeholder = 'Your Name'")
+    
+        .contact__form__email.contact__form__tyinput
+          label(for="email") 
+          input(type="email" id="email" class="contact__form__input" name="_replyto" required="" placeholder="Your Email@domain.com" onfocus="this.placeholder = 'Enter Your Email Here'" onblur="this.placeholder = 'Your Email@domain.com'")
+
+        .contact__form__message.contact__form__tyinput
+          label(for="message") 
+          textarea(type="text" id="message" name="message" class="contact__form__input contact__form__textarea" required="" placeholder="Your Message" onfocus="this.placeholder = 'Enter Your Message Here'" onblur="this.placeholder = 'Your Message'")
+
+        input(type="submit" class="btn" value="Send Message")
+    
+  div(class="#{lay6}__map")
+    div(class="#{lay6}__overlay")        
+    #map
+  
+  |{% include meta/google-maps.html %}

@@ -71,3 +71,4 @@ _live/
 build/
 source/_components
 .publish/
+.vscode

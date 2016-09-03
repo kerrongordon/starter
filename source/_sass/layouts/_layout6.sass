@@ -1,0 +1,82 @@
+.#{$layout6}
+  position: relative
+
+  +e('contain')
+    padding-bottom: $pad
+    padding-top: $pad * 4
+
+  +e('title')
+    text-align: center
+
+  +e('map')
+    position: relative
+    width: 100%
+    height: 600px
+
+  +e('overlay')
+    position: absolute
+    z-index: 99
+    background: linear-gradient(#fff , transparent)
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+  +e('content')
+    text-align: center
+    margin-top: $pad
+
+  .contain
+    max-width: 600px
+    margin: 0 auto -10%
+    position: relative
+    z-index: 200
+    padding: $pad
+
+.contact
+
+  +e('form')
+
+    .btn
+      border: none
+      margin-left: 50%
+      transform: translate(-50%, 0)
+
+    +e('input')
+      width: 95%
+      background: none
+      border: none
+      padding: 0 $pad - 10
+      font-size: 1.3rem
+      position: relative
+
+    +e('tyinput')
+      padding: $pad 0
+
+      input:focus,
+      textarea:focus,
+      keygen:focus,
+      select:focus,
+      &:after
+        content: ''
+        border-bottom: solid 2px blue
+        animation: line 0.3s ease
+
+    +e('textarea')
+      height: 20px
+      +transition(all, 0.3s, ease-in-out)
+
+      &:focus
+        height: 200px
+
+
+.gmnoprint
+  display: none
+
+
+@keyframes line
+  0%
+    width: 0%
+
+  100%
+    width: 92%

@@ -22,6 +22,7 @@
     "jquery": "^3.1.0",
     "bootstrap-sass": "^3.3.6",
     "bourbon": "^4.2.7",
-    "neat": "^1.8.0"
+    "neat": "^1.8.0",
+    "mapbox.js": "^2.4.0"
   }
 }

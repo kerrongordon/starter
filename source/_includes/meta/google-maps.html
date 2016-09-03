@@ -1,0 +1,12 @@
+<script>function initMap() {
+     var myLatLng = {lat: {{ site.google.maps.lat }}, lng: {{ site.google.maps.lng }} };
+     var map = new google.maps.Map(document.getElementById('map'), {
+       zoom: {{ site.google.maps.zoom }},
+       center: myLatLng
+     });
+     var marker = new google.maps.Marker({
+       position: myLatLng,
+       map: map,
+       title: 'Hello World!'
+     });
+   }</script><script src="https://maps.googleapis.com/maps/api/js?key={{ site.google.maps.ApiKey }}&amp;callback=initMap" async="async" defer="defer"> </script>

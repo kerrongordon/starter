@@ -106,6 +106,24 @@ img {
 .btn:hover {
   background: #512da8; }
 
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%; }
+
+input {
+  transition: all 0.3s ease-in-out; }
+
+input:focus,
+textarea:focus,
+keygen:focus,
+select:focus {
+  outline: none; }
+
+label {
+  display: block; }
+
 .menubar {
   width: 100%;
   height: 50px;
@@ -456,3 +474,70 @@ img {
   .layout5__title {
     font-size: 1.4rem;
     left: 40%; } }
+
+.layout6 {
+  position: relative; }
+  .layout6__contain {
+    padding-bottom: 20px;
+    padding-top: 80px; }
+  .layout6__title {
+    text-align: center; }
+  .layout6__map {
+    position: relative;
+    width: 100%;
+    height: 600px; }
+  .layout6__overlay {
+    position: absolute;
+    z-index: 99;
+    background: linear-gradient(#fff, transparent);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  .layout6__content {
+    text-align: center;
+    margin-top: 20px; }
+  .layout6 .contain {
+    max-width: 600px;
+    margin: 0 auto -10%;
+    position: relative;
+    z-index: 200;
+    padding: 20px; }
+
+.contact__form .btn {
+  border: none;
+  margin-left: 50%;
+  transform: translate(-50%, 0); }
+
+.contact__form__input {
+  width: 95%;
+  background: none;
+  border: none;
+  padding: 0 10px;
+  font-size: 1.3rem;
+  position: relative; }
+
+.contact__form__tyinput {
+  padding: 20px 0; }
+  .contact__form__tyinput input:focus,
+  .contact__form__tyinput textarea:focus,
+  .contact__form__tyinput keygen:focus,
+  .contact__form__tyinput select:focus, .contact__form__tyinput:after {
+    content: '';
+    border-bottom: solid 2px blue;
+    animation: line 0.3s ease; }
+
+.contact__form__textarea {
+  height: 20px;
+  transition: all 0.3s ease-in-out; }
+  .contact__form__textarea:focus {
+    height: 200px; }
+
+.gmnoprint {
+  display: none; }
+
+@keyframes line {
+  0% {
+    width: 0%; }
+  100% {
+    width: 92%; } }

@@ -42,7 +42,7 @@ img
   margin: 0 auto
   position: relative
 
-.overflow 
+.overflow
   background: rgba($dark-color, 0.8)
   position: absolute
   z-index: 10
@@ -67,3 +67,21 @@ img
 
 .btn:hover
   background: $primary-color
+
+#map
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100%
+
+input
+  +transition(all, 0.3s, ease-in-out)
+
+input:focus,
+textarea:focus,
+keygen:focus,
+select:focus
+  outline: none
+
+label
+  display: block

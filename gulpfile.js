@@ -32,7 +32,7 @@ let source = {
   output: {
     js: 'source/assets/js/',
     css: 'source/assets/css/',
-    html: 'source/_includes/'
+    html: 'source/'
   }
 }
 
@@ -58,14 +58,19 @@ gulp.task('clean:build', () => {
 
 //========== Remove Old Jade Build ==========//
 gulp.task('jade:clean', () => {
-  return del(source.output.html)
+  return del(source.html)
 })
 
-//========== Build Jade =========//
+//========== Remove live Build ==========//
+gulp.task('live:clean', ['jade:clean'], () => {
+  return del(live.all)
+})
+
+//========== Jade Build =========//
 gulp.task('jade:build', () => {
   return gulp.src(source.jade)
   	.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(jade({ pretty: true }))
+    .pipe(jade())
     .pipe(gulp.dest(source.output.html))
 })
 
@@ -85,7 +90,6 @@ gulp.task('sass:build', () => {
     .pipe(sass({ indentedSyntax: true }))
     .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
     .pipe(gulp.dest(source.output.css))
-    .pipe(browserSync.stream())
 })
 
 //========= Jekyll Build ==========//
@@ -153,8 +157,8 @@ gulp.task('copy:build', () => {
 gulp.task('build', (cb) => {
   runSequence(
     'clean:build',
-	'jade:clean',
-	'jade:build',
+    'live:clean',
+    'jade:build',
     'Webpack:build',
     'sass:build',
     'jekyll:build',
@@ -167,13 +171,16 @@ gulp.task('build', (cb) => {
 })
 
 //========== Run Server ==========//
-gulp.task('serve', ['jekyll:build'], () => {
-  browserSync.init({ server: './_live' })
+gulp.task('serve', () => {
+  browserSync.init({
+    server: './_live',
+    reloadDelay: 2000
+  })
   gulp.watch(source.sass, ['sass:build', 'jekyll:build'])
   gulp.watch(source.jade, ['jade:build'])
   gulp.watch(source.html, ['jekyll:build'])
   gulp.watch(source.js, ['Webpack:build', 'jekyll:build'])
-  gulp.watch(live.html).on('change', browserSync.reload)
+  gulp.watch('_live/*.html').on('change', browserSync.reload)
 })
 
 //========== Run Deploy ========//

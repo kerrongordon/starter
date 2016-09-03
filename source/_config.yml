@@ -5,15 +5,27 @@ description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "kerrongordon.github.io/starter" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+permalink: pretty
+
+paginate: 3
+paginate_path: "/blog/page:num/"
 
 include: ['assets']
 
+google:
+  maps:
+    ApiKey: "AIzaSyCeFOVG7kYPhtBaNLGScPZgc29QYOvXXio"
+    lat: "-34.397"
+    lng: "150.644"
+    zoom: "8"
+
 gems:
   - jekyll-seo-tag
+  - jekyll-paginate

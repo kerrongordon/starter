@@ -1,30 +1,3 @@
-<!DOCTYPE html>
-<html class="no-js" lang="">
-  <head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-    {% seo %}
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-		<link rel="stylesheet" href="{{ "assets/css/main.css" | prepend: site.baseurl }}">
-		<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-    {% include meta/scripts.html top="true" %}
-	</head>
-		<body>
-      <!--[if lt IE 8]>
-          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-      <![endif]-->
-
-    {% include menubar.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
-
-    {% include footer.html %}
-
-  </body>
-</html>
+<!DOCTYPE html><html lang="" class="no-js"><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="ie=edge">{% seo %}<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet"><link rel="stylesheet" href="{{ 'assets/css/main.css' | prepend: site.baseurl }}"><link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">{% include meta/scripts.html top="true" %}</head><body><!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+{{ content }}
+{% include footer.html %}</body></html>
