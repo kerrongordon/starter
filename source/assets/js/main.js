@@ -55,7 +55,7 @@
 
 	const $ = __webpack_require__(2);
 
-	$('body').fadeIn(1000);
+	//$('body').fadeIn(1000);
 
 	console.log('cats');
 

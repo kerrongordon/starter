@@ -2,6 +2,6 @@
 layout: default
 title: My Blog
 ---
-<!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}<h1><a href="{{ post.url }}">{{ post.title }}</a></h1><p class="author"><span class="date">{{ post.date }}</span></p><div class="content">{{ post.content }}</div>{% endfor %}
-<!-- Pagination links --><div class="pagination">{% if paginator.previous_page %}<a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>{% else %}<span class="previous">Previous</span>{% endif %}<span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>{% if paginator.next_page %}<a href="{{ paginator.next_page_path }}" class="next">Next</a>{% else %}<span class="next ">Next</span>{% endif %}</div>
+<!-- This loops through the paginated posts --><section class="post"> <div class="post__container"> 
+{% for post in paginator.posts %}<article class="post__article"><header class="post__header"><img src="{{ site.baseurl }}assets/img/postImg/{{ post.thumbnail }}" class="post__img"/><h3 class="title post__title">{{ post.title }}</h3><span>{{ post.date }}</span></header><div class="post__content">{{ post.content }}</div></article>{% endfor %}</div></section><!-- Pagination links --><div class="pagination"><div class="left">{% if paginator.previous_page %}<a href="{{ paginator.previous_page_path }}" class="btn post__btn previous">Previous</a>{% else %}<span class="previous">Previous</span>{% endif %}
+{% if paginator.next_page %}<a href="{{ paginator.next_page_path }}" class="btn post__btn next">Next</a>{% else %}<span class="next ">Next</span>{% endif %}</div><div class="right"><span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span></div><div class="clear"></div></div>
