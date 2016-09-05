@@ -5,17 +5,18 @@
 
 <!-- services -->
 
-- var lay2 = "layout2"
+- var lay2 = "services"
 
-section(class="#{lay2}")
-  .container.flex
+.container
+  section(class="#{lay2}")
     |{% for service in site.services %}
     article(class="#{lay2}__article")
       div(class="#{lay2}__img")
-        img(src="assets/img/hero.jpg" alt="" class="#{lay2}--img")
-      h3(class="title #{lay2}__title") {{ service.title }}
-      p(class="content #{lay2}__content") {{ service.content }}
-      a(href="{{ service.url }}").btn Read More
+        img(src="{{ site.baseurl }}assets/img/{{ service.thumbnail }}" alt="" class="#{lay2}--img")
+      div(class="#{lay2}__info")
+        h3(class="title #{lay2}__title") {{ service.title }}
+        p(class="content #{lay2}__content") {{ service.excerpt }}
+        a(href="{{ site.baseurl }}{{ service.url }}").btn Read More
     |{% endfor %}
     
 |{% include layout/layout3.html %}

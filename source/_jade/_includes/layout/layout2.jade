@@ -2,26 +2,11 @@
 
 section(class="#{lay2}")
   .container.flex
+    |{% for service in site.services limit:3 %}
     article(class="#{lay2}__article")
       div(class="#{lay2}__img")
         img(src="assets/img/hero.jpg" alt="" class="#{lay2}--img")
-      h3(class="title #{lay2}__title") Wireframe Kit 1
-      p(class="content #{lay2}__content") Habitasse exercitation auctor hymenaeos nisi tristique, montes dolore arcu cubilia tristique senectus,
-        | dis nullam. Quasi quo, rhoncus proin wisi odit pharetra, iure repellat optio? Hendrerit.
-      a(href="#").btn Read More
-
-    article(class="#{lay2}__article")
-      div(class="#{lay2}__img")
-        img(src="assets/img/hero.jpg" alt="" class="#{lay2}--img")
-      h3(class="title #{lay2}__title") Wireframe Kit 2
-      p(class="content #{lay2}__content") Habitasse exercitation auctor hymenaeos nisi tristique, montes dolore arcu cubilia tristique senectus,
-        | dis nullam. Quasi quo, rhoncus proin wisi odit pharetra, iure repellat optio? Hendrerit.
-      a(href="#").btn Read More
-        
-    article(class="#{lay2}__article")
-      div(class="#{lay2}__img")
-        img(src="assets/img/hero.jpg" alt="" class="#{lay2}--img")
-      h3(class="title #{lay2}__title") Wireframe Kit 3
-      p(class="content #{lay2}__content") Habitasse exercitation auctor hymenaeos nisi tristique, montes dolore arcu cubilia tristique senectus,
-        | dis nullam. Quasi quo, rhoncus proin wisi odit pharetra, iure repellat optio? Hendrerit.
-      a(href="#").btn Read More
+      h3(class="title #{lay2}__title") {{ service.title }}
+      p(class="content #{lay2}__content") {{ service.excerpt }}
+      a(href="{{ service.url }}").btn Read More
+    |{% endfor %}

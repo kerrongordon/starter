@@ -1,6 +1,6 @@
 |---
-|layout: default
-|title: My Blog
+|layout: page
+|title: Blog
 |---
 
 <!-- This loops through the paginated posts -->
@@ -13,11 +13,17 @@ section.post
     article.post__article
       header.post__header
         img(src="{{ site.baseurl }}assets/img/postImg/{{ post.thumbnail }}").post__img
-        h3.title.post__title {{ post.title }}
-        span {{ post.date }}
+        h4.title.post__title {{ post.title }}
         
       .post__content
-        | {{ post.content }}
+        | {{ post.excerpt }} 
+        
+      .post__footer
+        hr
+        span.left Posted on {{ post.date | date: "%b %d, %y" }}
+        a(href="{{ site.baseurl }}{{ post.url }}").btn.post__link.right Read More 
+        .clear
+        hr
       
     |{% endfor %}
 
@@ -41,3 +47,4 @@ section.post
   
   .clear
   
+|{% include layout/layout4.html %}

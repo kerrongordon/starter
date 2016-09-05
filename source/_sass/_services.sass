@@ -1,0 +1,56 @@
+.services
+  +e('article')
+    display: flex
+    flex-direction: column
+    margin: $pad*2 $pad
+
+    &:nth-child(even)
+      //flex-direction: row-reverse
+
+      .services__info
+        margin: 0
+
+  +e('img')
+    width: 100%
+
+  +e('info')
+    width: 100%
+
+
+.services
+  @media screen and (min-width: $tablet)
+    display: flex
+    //flex-direction: row
+    margin: $pad*2 $pad
+    flex-wrap: wrap
+
+    +e('article')
+      width: 50%
+      margin: 0
+      padding: $pad
+
+
+
+.services
+  @media screen and (min-width: $desktop)
+    display: block
+
+    +e('article')
+      width: 100%
+      align-items: center
+      margin: $pad*5 $pad
+      flex-direction: row
+
+      &:nth-child(even)
+        flex-direction: row-reverse
+
+        .services__info
+          margin-right: 100px
+          margin-left: 0
+
+    +e('img')
+      width: 50%
+
+    +e('info')
+      width: 50%
+      margin-left: 100px

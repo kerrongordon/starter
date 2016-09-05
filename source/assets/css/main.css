@@ -142,6 +142,14 @@ label {
 .clear {
   clear: both; }
 
+.center__content {
+  max-width: 700px;
+  padding: 80px 20px; }
+
+hr {
+  border-bottom: none;
+  border-color: rgba(52, 73, 94, 0.1); }
+
 .menubar {
   width: 100%; }
   .menubar__icon {
@@ -159,7 +167,9 @@ label {
     .menubar__list__item a {
       text-decoration: none;
       color: #656565;
-      padding: 10px; }
+      padding: 10px;
+      font-weight: bold;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.63); }
 
 .hero {
   width: 100%;
@@ -199,6 +209,9 @@ label {
   .hero__title {
     font-size: 7rem; } }
 
+.hero__posttitle {
+  font-size: 3rem; }
+
 .hero .menubar__icon svg path {
   fill: #fff; }
 
@@ -220,7 +233,7 @@ label {
   margin: 10px; }
 
 .post__container {
-  width: 760px;
+  max-width: 700px;
   margin: 40px auto; }
 
 .post__article {
@@ -233,9 +246,69 @@ label {
   padding: 5px 10px;
   line-height: 1.5; }
 
+.post__link {
+  padding: 0 20px; }
+
+.post__content {
+  padding: 20px; }
+
+.post__footer span {
+  display: block;
+  text-align: center; }
+
 .pagination {
-  width: 760px;
+  width: 700px;
   margin: 20px auto; }
+
+.services__article {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 40px 20px; }
+  .services__article:nth-child(even) .services__info {
+    margin: 0; }
+
+.services__img {
+  width: 100%; }
+
+.services__info {
+  width: 100%; }
+
+@media screen and (min-width: 860px) {
+  .services {
+    display: -ms-flexbox;
+    display: flex;
+    margin: 40px 20px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    .services__article {
+      width: 50%;
+      margin: 0;
+      padding: 20px; } }
+
+@media screen and (min-width: 1000px) {
+  .services {
+    display: block; }
+    .services__article {
+      width: 100%;
+      -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
+      margin: 100px 20px;
+      -ms-flex-direction: row;
+      flex-direction: row; }
+      .services__article:nth-child(even) {
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse; }
+        .services__article:nth-child(even) .services__info {
+          margin-right: 100px;
+          margin-left: 0; }
+    .services__img {
+      width: 50%; }
+    .services__info {
+      width: 50%;
+      margin-left: 100px; } }
 
 .notify {
   position: fixed;

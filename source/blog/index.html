@@ -1,7 +1,7 @@
 ---
-layout: default
-title: My Blog
+layout: page
+title: Blog
 ---
 <!-- This loops through the paginated posts --><section class="post"> <div class="post__container"> 
-{% for post in paginator.posts %}<article class="post__article"><header class="post__header"><img src="{{ site.baseurl }}assets/img/postImg/{{ post.thumbnail }}" class="post__img"/><h3 class="title post__title">{{ post.title }}</h3><span>{{ post.date }}</span></header><div class="post__content">{{ post.content }}</div></article>{% endfor %}</div></section><!-- Pagination links --><div class="pagination"><div class="left">{% if paginator.previous_page %}<a href="{{ paginator.previous_page_path }}" class="btn post__btn previous">Previous</a>{% else %}<span class="previous">Previous</span>{% endif %}
-{% if paginator.next_page %}<a href="{{ paginator.next_page_path }}" class="btn post__btn next">Next</a>{% else %}<span class="next ">Next</span>{% endif %}</div><div class="right"><span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span></div><div class="clear"></div></div>
+{% for post in paginator.posts %}<article class="post__article"><header class="post__header"><img src="{{ site.baseurl }}assets/img/postImg/{{ post.thumbnail }}" class="post__img"/><h4 class="title post__title">{{ post.title }}</h4></header><div class="post__content">{{ post.excerpt }} </div><div class="post__footer"><hr/><span class="left">Posted on {{ post.date | date: "%b %d, %y" }}</span><a href="{{ site.baseurl }}{{ post.url }}" class="btn post__link right">Read More </a><div class="clear"></div><hr/></div></article>{% endfor %}</div></section><!-- Pagination links --><div class="pagination"><div class="left">{% if paginator.previous_page %}<a href="{{ paginator.previous_page_path }}" class="btn post__btn previous">Previous</a>{% else %}<span class="previous">Previous</span>{% endif %}
+{% if paginator.next_page %}<a href="{{ paginator.next_page_path }}" class="btn post__btn next">Next</a>{% else %}<span class="next ">Next</span>{% endif %}</div><div class="right"><span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span></div><div class="clear"></div></div>{% include layout/layout4.html %}

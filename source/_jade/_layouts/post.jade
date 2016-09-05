@@ -2,22 +2,23 @@
 |layout: default
 |---
 
-<!-- post page -->
-
-.post
-
-  header.post-header
-    h1.post-title {{ page.title }}
-    p.post-meta {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
-
-  article.post-content
-    |{{ content }}
-
+|{% include hero.html posttitle="hero__posttitle" postimg=page.thumbnail %}
 
 section.post
   .post__container
     
     header.post__header
-      h1.title.post__title {{ page.title }}
       
+    .post__content
+      |{{ content }} 
+      
+    .post__footer
+      hr
+      span Posted on {{ page.date | date: "%b %d, %y" }}
+      hr
+    |{% if page.comments %}
+    |{% include disqus.html %}    
+    |{% endif %}
   
+
+|{% include layout/layout4.html %}

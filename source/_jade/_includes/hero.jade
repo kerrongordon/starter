@@ -1,4 +1,15 @@
-section(class="hero {{ include.home }}").hero
+|{% if include.postimg %}
+section(class="hero" style="background-image: url({{ site.baseurl }}assets/img/postImg/{{ include.postimg }})")
+
+  |{% include menubar.html %}
+
+  h1(class="hero__title {{ include.posttitle }}")  {{ page.title }}
+
+|{% else %}
+section(class="hero {{ include.home }}")
+
   |{% include menubar.html %}
   
-  h1.hero__title  {{ page.title }}
+  h1(class="hero__title {{ include.posttitle }}")  {{ page.title }}
+
+|{% endif %}

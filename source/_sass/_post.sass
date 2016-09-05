@@ -1,7 +1,7 @@
 .post
 
   +e('container')
-    width: 760px
+    max-width: 700px
     margin: $pad +$pad auto
 
   +e('article')
@@ -14,8 +14,18 @@
     padding: 5px 10px
     line-height: 1.5
     //margin: 10px
+  +e('link')
+    padding: 0 $pad
+
+  +e('content')
+    padding: $pad
+
+  +e('footer')
+    span
+      display: block
+      text-align: center
 
 
 .pagination
-  width: 760px
+  width: 700px
   margin: $pad auto
