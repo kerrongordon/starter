@@ -73,9 +73,9 @@ source/_components
 .publish/
 .vscode
 
-source/_includes
-source/404
-source/blog
-source/_layouts
+source/_includes/*.html
+source/404/
+source/blog/
+source/_layouts/
 source/*.html
-source/js
+source/js/
