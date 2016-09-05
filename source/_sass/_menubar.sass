@@ -1,12 +1,26 @@
 .menubar
   width: 100%
-  height: 50px
-  margin-top: -50px
-  background: rgba($dark-color, 0.5)
-  filter: blur(3px)
+
+  +e('icon')
+    position: relative
+    top: 7px
+    left: -5px
+
+    svg
+      width: 24px
+      height: 24px
+
+      path
+        fill: $dark-color
 
   +e('list')
 
 
     +e('item')
       display: inline-block
+      padding: $pad - 10
+
+      a
+        text-decoration: none
+        color: $font-color
+        padding: $pad - 10

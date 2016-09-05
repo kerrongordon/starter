@@ -1,34 +1,58 @@
 .hero
 	width: 100%
-	height: 500px
+	height: 400px
 	background-color: $primary-color
-	background: linear-gradient(145deg, $primary-color, $accent-color)
-	perspective: 1000px
+	background: url(../img/hero.jpg) center center /cover
+	position: relative
 	overflow: hidden
 
-	+e('img')
-		width: 100%
-		height: 100%
-		//background: url(../img/hero.jpg) 50% 50%/cover
-		//background-attachment: fixed
-		perspective-origin: top
-		//animation: heroImg 2s ease-in-out
+	+e('home')
+		height: 500px
 
-
-@keyframes heroImg
-	0%
-		transform: scale(0)
-
-	80%
-		transform: scale(1.1)
-
-	100%
-		transform: scale(1)
+	+e('title')
+		color: #fff
+		position: absolute
+		z-index: 20
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+		font-family: 'Rancho', cursive
+		font-size: 3rem
+		text-align: center
+		line-height: 1.3
+		text-shadow: 3px 3px 10px #000
 
 .hero
 	@media screen and (min-width: $tablet)
-		height: 650px
+		+e('home')
+			height: 650px
+
+		+e('title')
+			font-size: 4rem
 
 .hero
 	@media screen and (min-width: $desktop)
-		height: 800px
+		+e('home')
+			height: 800px
+
+		+e('title')
+			font-size: 5rem
+
+.hero
+	@media screen and (min-width: $desktop + 400)
+
+		+e('title')
+			font-size: 7rem
+
+
+.hero
+	.menubar
+	  +e('icon')
+	    svg
+	      path
+	        fill: $light
+
+	  +e('list')
+	    +e('item')
+	      a
+	        color: $light
