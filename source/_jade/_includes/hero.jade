@@ -1,2 +1,4 @@
-section.hero
-  .hero__img
+section(class="hero {{ include.home }}").hero
+  |{% include menubar.html %}
+  
+  h1.hero__title  {{ page.title }}
