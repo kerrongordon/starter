@@ -29,6 +29,7 @@ let source = {
   html: 'source/**/*.html',
   img: 'source/assets/img/',
   jade: 'source/_jade/**/*.jade',
+  md: 'source/**/*.md',
   output: {
     js: 'source/assets/js/',
     css: 'source/assets/css/',
@@ -179,6 +180,7 @@ gulp.task('serve', () => {
   gulp.watch(source.sass, ['sass:build', 'jekyll:build'])
   gulp.watch(source.jade, ['jade:build'])
   gulp.watch(source.html, ['jekyll:build'])
+  gulp.watch(source.md, ['jekyll:build'])
   gulp.watch(source.js, ['Webpack:build', 'jekyll:build'])
   gulp.watch('_live/*.html').on('change', browserSync.reload)
 })
