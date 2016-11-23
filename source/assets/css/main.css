@@ -293,7 +293,6 @@ hr {
     .services__article {
       width: 100%;
       -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
       margin: 100px 20px;
       -ms-flex-direction: row;
@@ -558,7 +557,6 @@ hr {
     position: relative;
     overflow: hidden; }
     .layout5__item:hover img {
-      -webkit-filter: blur(15px);
       filter: blur(15px); }
     .layout5__item:hover .layout5__title {
       top: 40%; }
