@@ -72,6 +72,7 @@ build/
 source/_components
 .publish/
 .vscode
+vendor/
 
 source/_includes/*.html
 source/404/
